@@ -1,0 +1,14 @@
+{% extends "AppRegistro/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<!-- aqui va lo que cambia y lo asociado a esta vista  -->
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Registrar</button>
+    </form>
+
+{% endblock %}
