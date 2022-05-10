@@ -11,4 +11,12 @@
     <br>
     <button><a href="{% url 'logout' %}">Salir</a></button>
 
+    {% for blogueo in lista_blog %}
+        <h2>{{ blogsModel.titulo }}</h2>
+        <p>{{ blogsModel.autor }} | {{ blogsModel.created_on}} </p>
+        <p>{{blogsModel.cuerpo|slice:":200" }}</p>
+        <a href="{% url 'detalle_blog' blogsModel.slug  %}">Leer más</a>
+
+    {% endfor %}
+
 {% endblock %}
