@@ -5,18 +5,37 @@
 {% block contenidoQueCambia %}
 
 <!-- aqui va lo que cambia y lo asociado a esta vista  -->
-
-    <h2>Buscá una camada:</h2>
     <h1>{{mensaje}}</h1>
-    <br>
-    <button><a href="{% url 'logout' %}">Salir</a></button>
 
-    {% for blogueo in lista_blog %}
+    {% comment %} {% for blogueo in lista_blog %}
         <h2>{{ blogsModel.titulo }}</h2>
         <p>{{ blogsModel.autor }} | {{ blogsModel.created_on}} </p>
         <p>{{blogsModel.cuerpo|slice:":200" }}</p>
         <a href="{% url 'detalle_blog' blogsModel.slug  %}">Leer más</a>
 
-    {% endfor %}
+    {% endfor %} {% endcomment %}
+    <h1>Blogs de Coder</h1>
+    <ul>
+        {% for Blogs in object_list %}
+
+            <li>
+                <p> {{ blogsModel.titulo }} </p>
+                <p> 
+                    <a href="{% url 'Detail' Blog.id %}">Ver</a> | 
+                    <a href="{% url 'Edit' Blog.id %}">Editar</a> | 
+                    <a href="{% url 'Delete' Blog.id %}">Borrar</a> 
+                
+                </p> 
+            </li>
+
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'New'  %}">Nueva entrada de blog</a>
+
+    
+
+    <br>
+    <button><a href="{% url 'logout' %}">Salir</a></button>
 
 {% endblock %}

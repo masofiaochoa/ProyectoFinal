@@ -3,12 +3,19 @@ from django.http import HttpResponse
 from AppRegistro.models import Avatar, blogsModel
 from AppRegistro.forms import UserRegisterForm, UserEditForm
 
+from django.views import generic
+
 from django.urls import reverse_lazy
+
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
-from django.views import generic
+
 
 
 # Create your views here.
@@ -22,11 +29,27 @@ from django.views import generic
 #     model = blogsModel
 #     template_name = 'detalle_blog.html'
 
-def leerBlogs(request):
-    profesores = blogsModel.objects.all() #trae todos los profesores
-    contexto = {"blog": blogsModel}
+class blogList(ListView): 
+      model = blogsModel 
+      template_name = "AppRegistro/blogsModel_list.html"
 
-    return render(request, "AppCoder/inicio.html", contexto)
+class blogDetalle(DetailView):
+      model = blogsModel
+      template_name = "AppRegistro/blogsModel_detalle.html"
+
+class blogCreacion(CreateView):
+      model = blogsModel
+      success_url = "/AppRegistro/blogs/list"
+      fields = ['titulo', 'slug','cuerpo']
+
+class blogUpdate(UpdateView):
+      model = blogsModel
+      success_url = "/AppRegistro/blogs/list"
+      fields  = ['titulo', 'cuerpo']
+
+class blogDelete(DeleteView):
+      model = blogsModel
+      success_url = "/AppRegistro/blogs/list"
 
 # acerca_de_mi view
 def acerca_de_mi(request):

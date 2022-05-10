@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Landing Page - Start Bootstrap Theme</title>
+        <title>Playground Avanzado</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -24,8 +24,11 @@
             <div class="container">
                 <a class="navbar-brand" href="{% url 'Inicio'%}">Inicio</a>
                 <a class="navbar-brand" href="{% url 'acerca_de_mi' %}">Acerca de Mi</a>
-                <a class="navbar-brand" href="{% url 'EditarPerfil' %}">Editar Perfil</a>
+
+                <a class="navbar-brand" href="{% url 'List' %}">Blogs</a> 
+
                 <a class="navbar-brand" href="{% url 'login' %}">Iniciar Sesión</a>
+                <a class="navbar-brand" href="{% url 'EditarPerfil' %}">Editar Perfil</a>
                 <a class="navbar-brand" href="{% url 'register' %}">Registrarse</a> 
             </div>
             {% if not request.user.is_authenticated %}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs Detalle</title>
+</head>
+<body>
+
+
+   
+    <h3> :)) </h3>
+    <p>Titulo: <i>{{ blogsModel.titulo }}</i></p>
+    <p>Autor: <i>{{ blogsModel.autor }}</i></p>
+    <p>Creado el: <i>{{ blogsModel.created_on }}</i></p>
+    <p>Contenido: <i>{{ blogsModel.cuerpo }}</i></p>
+    <p>
+        <a href="{% url 'List' %}">Regresar</a>
+    </p>
+    
+</body>
+</html>
+
+

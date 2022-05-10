@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blogsModel_List</title>
+</head>
+<body>
+    <h1>Blogs de Coder</h1>
+    <ul>
+        {% for blog in object_list %}
+    
+            <li>
+                <p> {{ blogsModel.titulo }} </p>
+                <p> 
+                    <a href="{% url 'Detail' blog.id %}">Ver</a> | 
+                    <a href="{% url 'Edit' blog.id %}">Editar</a> | 
+                    <a href="{% url 'Delete' blog.id %}">Borrar</a> 
+                
+                </p> 
+            </li>
+    
+        {% endfor %}
+    </ul>
+    
+    <a href="{% url 'New'  %}">Nueva entrada de blog</a>
+</body>
+</html> 
+
+
