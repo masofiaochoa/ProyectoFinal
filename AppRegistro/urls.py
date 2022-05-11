@@ -22,4 +22,3 @@ urlpatterns = [
 
 # usuario nuevo ktN4UqcU
 # superuser sofipc asd
-# https://djangocentral.com/building-a-blog-application-with-django/

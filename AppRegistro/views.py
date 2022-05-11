@@ -64,7 +64,7 @@ def inicio(request):
 def login_request(request):
 
       if request.method == "POST":
-            form = AuthenticationForm(request, data = request.POST)
+            form = AuthenticationForm(request, data = request.POST) 
             if form.is_valid():
                   usuario = form.cleaned_data.get('username')
                   contra = form.cleaned_data.get('password')
