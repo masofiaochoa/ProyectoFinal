@@ -12,7 +12,7 @@
         {% for blog in object_list %}
     
             <li>
-                <p> {{ blogsModel.titulo }} </p>
+                <p> {{ blog.titulo }} </p>
                 <p> 
                     <a href="{% url 'Detail' blog.id %}">Ver</a> | 
                     <a href="{% url 'Edit' blog.id %}">Editar</a> | 
